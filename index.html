@@ -43,6 +43,35 @@
    <p class="hint">Текст подсказки от TEST</p> <!--Проверка-->
    <button id="button" class="button">Показать или скрыть основную кнопку </button> 
    <button id="btnEdit" class="button">Активировать кнопку / сделать неактивной</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
+
+    <h1>Параметры, переданные через URL:</h1>
+    <ul id="paramsList">
+    </ul>
+
+    <script>
+        // Функция для получения параметров из URL
+        function getURLParams() {
+            var params = {};
+            var urlParams = new URLSearchParams(window.location.search);
+
+            for (const [key, value] of urlParams) {
+                params[key] = value;
+            }
+
+            return params;
+        }
+
+        // Получаем параметры из URL и выводим их на страницу
+        var params = getURLParams();
+        var paramsList = document.getElementById("paramsList");
+
+        for (const key in params) {
+            var listItem = document.createElement("li");
+            listItem.textContent = key + ": " + params[key];
+            paramsList.appendChild(listItem);
+        }
+    </script>   
+   
 </body>
 <script>
   let telegramAppTEST = window.Telegram.WebApp; //нужно получить объект window.Telegram.WebApp Телеграмма
