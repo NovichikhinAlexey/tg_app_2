@@ -48,6 +48,8 @@
     <ul id="paramsList">
     </ul>
 
+   <button id="myButton">Нажми меня</button>
+
     <script>
         // Функция для получения параметров из URL
         function getURLParams() {
@@ -122,5 +124,9 @@
    let authData = document.createElement('p'); 
    authData.innerText = `${telegramAppTEST.initData}`; 
    usercard.appendChild(authData); 
+
+   document.getElementById("myButton").addEventListener("click", function() {
+     window.Telegram.WebApp.sendData("hello")
+   });
 </script>
 </html>
